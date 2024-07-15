@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <div className="col-span-1">
         <Sidemenu />
       </div>
-      <main className="col-start-2 col-span-11 p-4 h-full rounded-tl-3xl bg-[#f5f6fa]">
+      <main className="col-start-2 col-span-11 p-6 h-full rounded-tl-3xl bg-[#f5f6fa]">
         <Component {...pageProps} />
       </main>
     </section>
