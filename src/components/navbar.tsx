@@ -12,7 +12,7 @@ const Navbar = () => {
             alt="logo"
           />
         </div>
-        <div className="flex items-center justify-center gap-2 border border-gray-300 rounded-full ml-10">
+        <div className="flex items-center justify-center gap-2 border border-gray-300 py-1 rounded-full ml-10">
           <Image
             className="ml-2"
             width={15}
@@ -71,7 +71,12 @@ const Navbar = () => {
           />
         </div>
         <div>
-          <Image width={20} height={20} src={"/storm.png"} alt="fulmine" />
+          <Image
+            width={20}
+            height={20}
+            src={"/navbar-imgs/storm.png"}
+            alt="fulmine"
+          />
         </div>
         <div>
           <Image

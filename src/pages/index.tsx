@@ -1,9 +1,17 @@
+import Statistiche from "@/components/statistiche";
 import { Inter } from "next/font/google";
 import Image from "next/image";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
+
   return (
     <>
       <section>
@@ -14,7 +22,9 @@ export default function Home() {
           <li className="text-sl text-gray-500">Prezzi</li>
           <li className="text-sl text-gray-500">Impostazioni</li>
           <li className="text-sl text-gray-500">Team</li>
-          <li className="text-sl font-semibold">Referral</li>
+          <li className="text-sl font-semibold relative after:content-[''] after:absolute after:w-full after:bg-[#F40F67] after:-bottom-2 after:h-1 after:left-0  ">
+            Referral
+          </li>
         </ul>
       </section>
       <section className="w-full bg-gradient-to-r from-pink-200 to-blue-200 p-8 px-10 flex items-center justify-between mt-8 rounded-2xl">
@@ -92,7 +102,7 @@ export default function Home() {
         <div className="flex items-center justify-between mt-2">
           <h4 className="text-xl font-semibold">Risultati</h4>
           <button
-            className="border-2 p-1 px-6 rounded-full font-bold text-sm bg-gradient-to-r from-pink-500 to-blue-500"
+            className="border p-1 px-6 rounded-full font-bold text-sm bg-gradient-to-r from-pink-500 to-blue-500 border-[#f0136f]"
             style={{
               backgroundImage:
                 "linear-gradient(to right, #F40F67, #C73BC2, #04FBFA)",
@@ -104,7 +114,15 @@ export default function Home() {
           </button>
         </div>
         <div className="flex items-center justify-between gap-8 ">
-          <div className="flex flex-col gap-3 bg-[#F5F7FF] w-full p-8 rounded-2xl bg-[url('/main-imgs/vector-1.png')] bg-no-repeat bg-right">
+          <div className="flex flex-col gap-3 bg-[#F5F7FF] w-full p-8 rounded-2xl bg-[url('/main-imgs/vector-1.png')] bg-no-repeat bg-right relative">
+            <div className="absolute top-0 left-48 -mt-10 ">
+              <Image
+                src={"/main-imgs/tooltip.png"}
+                width={200}
+                height={200}
+                alt="tooltip"
+              />
+            </div>
             <span className="text-xl text-zinc-400 flex items-center gap-2">
               Crediti Totali{" "}
               <Image
@@ -117,7 +135,15 @@ export default function Home() {
             </span>
             <p className="text-4xl font-semibold">€715,34</p>
           </div>
-          <div className="flex flex-col gap-3 bg-[#F5F7FF] w-full p-8 rounded-2xl bg-[url('/main-imgs/vector-2.png')] bg-no-repeat bg-right">
+          <div className="flex flex-col gap-3 bg-[#F5F7FF] w-full p-8 rounded-2xl bg-[url('/main-imgs/vector-2.png')] bg-no-repeat bg-right relative">
+            <div className="absolute top-0 left-52 -mt-10 -ml-2">
+              <Image
+                src={"/main-imgs/tooltip2.png"}
+                width={200}
+                height={200}
+                alt="tooltip"
+              />
+            </div>
             <span className="text-xl text-zinc-400 flex items-center gap-2">
               Sconto sul prossimo rinnovo
               <Image
@@ -144,7 +170,7 @@ export default function Home() {
             <p className="text-4xl font-semibold">€9,34</p>
           </div>
         </div>
-        <div className="flex items-center justify-between border p-1 rounded-full px-4 border-pink-400 mb-4">
+        <div className="flex items-center justify-between border p-1 rounded-full px-4 border-[#f0136f] mb-4">
           <div className="flex items-center gap-2">
             <Image
               src={"/main-imgs/lamp.png"}
@@ -166,7 +192,10 @@ export default function Home() {
         </div>
       </section>
       <section className="flex items-center justify-between mt-8">
-        <div className="flex items-center  gap-2">
+        <div
+          onClick={() => handleClick()}
+          className="flex items-center  gap-2 cursor-pointer"
+        >
           <Image
             src={"/main-imgs/freccia.png"}
             width={35}
@@ -174,7 +203,7 @@ export default function Home() {
             alt="freccia"
             className="mt-1"
           />
-          <h2 className="text-3xl font-semibold">Statistiche</h2>
+          <h2 className="text-3xl font-semibold cursor-pointer">Statistiche</h2>
         </div>
         <div className="flex items-center gap-4 ">
           <div className="flex items-center gap-4 bg-white p-1 px-5 rounded-xl drop-shadow">
@@ -203,50 +232,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="flex items-center justify-between gap-8 mt-8">
-        <div className="flex w-full bg-white p-8 rounded-2xl items-center gap-6 drop-shadow">
-          <div>
-            <Image
-              src={"/main-imgs/click.png"}
-              width={45}
-              height={45}
-              alt="click"
-            />
-          </div>
-          <div className="flex flex-col gap-1">
-            <span className="text-xl text-gray-400">Click sul link</span>
-            <p className="text-2xl font-semibold">41.391</p>
-          </div>
-        </div>
-        <div className="flex w-full bg-white p-8 rounded-2xl items-center gap-6 drop-shadow">
-          <div>
-            <Image
-              src={"/main-imgs/persone.png"}
-              width={45}
-              height={45}
-              alt="persone"
-            />
-          </div>
-          <div className="flex flex-col gap-1">
-            <span className="text-xl text-gray-400">Persone registrate</span>
-            <p className="text-2xl font-semibold">12.568</p>
-          </div>
-        </div>
-        <div className="flex w-full bg-white p-8 rounded-2xl items-center gap-6 drop-shadow">
-          <div>
-            <Image
-              src={"/main-imgs/conversioni.png"}
-              width={45}
-              height={45}
-              alt="conversioni"
-            />
-          </div>
-          <div className="flex flex-col gap-1">
-            <span className="text-xl text-gray-400">Conversioni</span>
-            <p className="text-2xl font-semibold">346</p>
-          </div>
-        </div>
-      </section>
+      {isClicked && <Statistiche />}
     </>
   );
 }

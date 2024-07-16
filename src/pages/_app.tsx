@@ -13,9 +13,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <header className="col-span-12">
         <Navbar />
       </header>
-      <div className="col-span-1">
+      <aside className="col-span-1">
         <Sidemenu />
-      </div>
+      </aside>
       <main className="col-start-2 col-span-11 p-6 h-full rounded-tl-3xl bg-[#f5f6fa]">
         <Component {...pageProps} />
       </main>

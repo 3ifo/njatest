@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Sidemenu = () => {
   return (
-    <aside className="h-screen w-16 flex flex-col items-center gap-5">
+    <section className="h-screen w-16 flex flex-col items-center gap-5">
       <section className="mt-8">
         <Image width={20} height={20} src={"/aside-imgs/menu.png"} alt="menu" />
       </section>
@@ -38,7 +38,7 @@ const Sidemenu = () => {
           alt="menu"
         />
       </section>
-      <section className="mt-48">
+      <section className="mt-80">
         <section>
           <Image
             width={100}
@@ -56,7 +56,7 @@ const Sidemenu = () => {
           />
         </section>
       </section>
-    </aside>
+    </section>
   );
 };
 
