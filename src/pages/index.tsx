@@ -1,15 +1,20 @@
 import Statistiche from "@/components/statistiche";
+import { toggleStatistiche } from "@/features/statisticheSlice";
+import { AppDispatch, RootState } from "@/store";
 import { Inter } from "next/font/google";
 import Image from "next/image";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [isClicked, setIsClicked] = useState(false);
+  const dispatch: AppDispatch = useDispatch();
+  const isVisible = useSelector(
+    (state: RootState) => state.statistiche.isVisible
+  );
 
   const handleClick = () => {
-    setIsClicked(!isClicked);
+    dispatch(toggleStatistiche());
   };
 
   return (
@@ -232,7 +237,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {isClicked && <Statistiche />}
+      {isVisible && <Statistiche />}
     </>
   );
 }
