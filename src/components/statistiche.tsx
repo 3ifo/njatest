@@ -1,4 +1,9 @@
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import React from "react";
+import chartRef from "./chart";
+
+const Chart = dynamic(() => import("./chart") as any, { ssr: false });
 
 const Statistiche = () => {
   return (
@@ -60,14 +65,8 @@ const Statistiche = () => {
             />{" "}
           </h4>
         </div>
-        <div>
-          <Image
-            src={"/main-imgs/grafico.png"}
-            width={1200}
-            height={1200}
-            alt="grafico"
-            layout="responsive"
-          />
+        <div id="chartdiv" className="w-full min-h-96">
+          <Chart />
         </div>
       </section>
       <section className="mt-4 bg-white rounded-2xl pt-4 drop-shadow">
