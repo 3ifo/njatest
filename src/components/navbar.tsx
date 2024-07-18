@@ -68,6 +68,7 @@ const Navbar = () => {
             height={20}
             src={"/navbar-imgs/impostazioni.png"}
             alt="impostazioni"
+            className="cursor-pointer"
           />
         </div>
         <div>
@@ -76,6 +77,7 @@ const Navbar = () => {
             height={20}
             src={"/navbar-imgs/storm.png"}
             alt="fulmine"
+            className="cursor-pointer"
           />
         </div>
         <div>
@@ -84,6 +86,7 @@ const Navbar = () => {
             height={20}
             src={"/navbar-imgs/notifiche.png"}
             alt="notifiche"
+            className="cursor-pointer"
           />
         </div>
         <div>
@@ -92,6 +95,7 @@ const Navbar = () => {
             height={40}
             src={"/navbar-imgs/utente.png"}
             alt="utente"
+            className="cursor-pointer"
           />
         </div>
       </section>

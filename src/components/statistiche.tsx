@@ -2,10 +2,18 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import React from "react";
 import chartRef from "./chart";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
+import { setStatistiche } from "@/features/statisticheSlice";
 
 const Chart = dynamic(() => import("./chart") as any, { ssr: false });
 
 const Statistiche = () => {
+  const dispatch = useDispatch();
+  const { clickSulLink, personeRegistrate, conversioni } = useSelector(
+    (state: RootState) => state.statistiche
+  );
+
   return (
     <>
       <section className="flex items-center justify-between gap-8 mt-8">
@@ -20,7 +28,7 @@ const Statistiche = () => {
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-xl text-gray-400">Click sul link</span>
-            <p className="text-2xl font-semibold">41.391</p>
+            <p className="text-2xl font-semibold">{clickSulLink}</p>
           </div>
         </div>
         <div className="flex w-full bg-white p-8 rounded-2xl items-center gap-6 drop-shadow">
@@ -34,7 +42,7 @@ const Statistiche = () => {
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-xl text-gray-400">Persone registrate</span>
-            <p className="text-2xl font-semibold">12.568</p>
+            <p className="text-2xl font-semibold">{personeRegistrate}</p>
           </div>
         </div>
         <div className="flex w-full bg-white p-8 rounded-2xl items-center gap-6 drop-shadow">
@@ -48,7 +56,7 @@ const Statistiche = () => {
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-xl text-gray-400">Conversioni</span>
-            <p className="text-2xl font-semibold">346</p>
+            <p className="text-2xl font-semibold">{conversioni}</p>
           </div>
         </div>
       </section>
