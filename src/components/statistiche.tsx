@@ -1,7 +1,6 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import React from "react";
-import chartRef from "./chart";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
 import { setStatistiche } from "@/features/statisticheSlice";

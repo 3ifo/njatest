@@ -1,74 +1,37 @@
 import Image from "next/image";
+import { sideLinks, middleSideLinks } from "../data/sideLinks";
 
 const Sidemenu = () => {
   return (
-    <section className="h-screen w-16 flex flex-col items-center gap-5">
-      <section className="mt-8">
-        <Image
-          width={20}
-          height={20}
-          src={"/aside-imgs/menu.png"}
-          alt="menu"
-          className="cursor-pointer"
-        />
-      </section>
-      <section>
-        <Image
-          width={100}
-          height={100}
-          src={"/aside-imgs/item.png"}
-          alt="menu"
-          className="cursor-pointer"
-        />
-      </section>
-      <section>
-        <Image
-          width={100}
-          height={100}
-          src={"/aside-imgs/foglio.png"}
-          alt="menu"
-          className="cursor-pointer"
-        />
-      </section>
-      <section>
-        <Image
-          width={100}
-          height={100}
-          src={"/aside-imgs/cartella.png"}
-          alt="menu"
-          className="cursor-pointer"
-        />
-      </section>
-      <section>
-        <Image
-          width={100}
-          height={100}
-          src={"/aside-imgs/cancelletto.png"}
-          alt="menu"
-          className="cursor-pointer"
-        />
-      </section>
-      <section className="mt-80">
-        <section>
-          <Image
-            width={100}
-            height={100}
-            src={"/aside-imgs/watch.png"}
-            alt="menu"
-            className="cursor-pointer"
-          />
-        </section>
-        <section>
-          <Image
-            width={100}
-            height={100}
-            src={"/aside-imgs/info.png"}
-            alt="menu"
-            className="cursor-pointer"
-          />
+    <>
+      <section className="h-screen w-16 flex flex-col items-center gap-5 mt-8">
+        {sideLinks.map((item, index) => (
+          <section key={index}>
+            <Image
+              width={item.width}
+              height={item.height}
+              src={item.src}
+              alt={item.alt}
+              className="cursor-pointer"
+            />
+          </section>
+        ))}
+        <section className="mt-80">
+          {middleSideLinks.map((item, index) => {
+            return (
+              <section key={index}>
+                <Image
+                  src={item.src}
+                  width={item.width}
+                  height={item.height}
+                  alt={item.alt}
+                />
+              </section>
+            );
+          })}
         </section>
       </section>
-    </section>
+    </>
   );
 };
 

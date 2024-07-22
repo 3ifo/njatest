@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { socialLinks, settingsLinks } from "../data/navLinks";
 
 const Navbar = () => {
   return (
@@ -8,7 +9,7 @@ const Navbar = () => {
           <Image
             width={35}
             height={35}
-            src={"/navbar-imgs/logo.png"}
+            src="/navbar-imgs/logo.png"
             alt="logo"
           />
         </div>
@@ -17,7 +18,7 @@ const Navbar = () => {
             className="ml-2"
             width={15}
             height={15}
-            src={"/navbar-imgs/search.png"}
+            src="/navbar-imgs/search.png"
             alt="search"
           />
           <input
@@ -28,76 +29,29 @@ const Navbar = () => {
         </div>
       </section>
       <section className="flex gap-4 mr-40">
-        <div>
-          <Image
-            width={25}
-            height={25}
-            src={"/navbar-imgs/instagram.png"}
-            alt="instagram"
-          />
-        </div>
-        <div>
-          <Image
-            width={25}
-            height={25}
-            src={"/navbar-imgs/facebook.png"}
-            alt="facebook"
-          />
-        </div>
-        <div>
-          <Image
-            width={25}
-            height={25}
-            src={"/navbar-imgs/linkedin.png"}
-            alt="linkedin"
-          />
-        </div>
-        <div>
-          <Image
-            width={25}
-            height={25}
-            src={"/navbar-imgs/tiktok.png"}
-            alt="tiktok"
-          />
-        </div>
+        {socialLinks.map((link) => (
+          <div key={link.alt}>
+            <Image
+              width={link.width}
+              height={link.height}
+              src={link.src}
+              alt={link.alt}
+            />
+          </div>
+        ))}
       </section>
       <section className="flex items-center gap-4">
-        <div>
-          <Image
-            width={20}
-            height={20}
-            src={"/navbar-imgs/impostazioni.png"}
-            alt="impostazioni"
-            className="cursor-pointer"
-          />
-        </div>
-        <div>
-          <Image
-            width={20}
-            height={20}
-            src={"/navbar-imgs/storm.png"}
-            alt="fulmine"
-            className="cursor-pointer"
-          />
-        </div>
-        <div>
-          <Image
-            width={20}
-            height={20}
-            src={"/navbar-imgs/notifiche.png"}
-            alt="notifiche"
-            className="cursor-pointer"
-          />
-        </div>
-        <div>
-          <Image
-            width={40}
-            height={40}
-            src={"/navbar-imgs/utente.png"}
-            alt="utente"
-            className="cursor-pointer"
-          />
-        </div>
+        {settingsLinks.map((link) => (
+          <div key={link.alt}>
+            <Image
+              width={link.width}
+              height={link.height}
+              src={link.src}
+              alt={link.alt}
+              className="cursor-pointer"
+            />
+          </div>
+        ))}
       </section>
     </nav>
   );

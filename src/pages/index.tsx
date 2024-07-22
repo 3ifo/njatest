@@ -5,6 +5,7 @@ import { AppDispatch, RootState } from "@/store";
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
+import Box from "@/components/box";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -166,61 +167,26 @@ export default function Home() {
           </button>
         </div>
         <div className="flex items-center justify-between gap-8 ">
-          <div className="flex flex-col gap-3 bg-[#F5F7FF] w-full p-8 rounded-2xl bg-[url('/main-imgs/vector-1.png')] bg-no-repeat bg-right relative">
-            <div className="absolute top-0 left-48 -mt-10 ">
-              <Image
-                src={"/main-imgs/tooltip.png"}
-                width={200}
-                height={200}
-                alt="tooltip"
-              />
-            </div>
-            <span className="text-xl text-zinc-400 flex items-center gap-2">
-              Crediti Totali{" "}
-              <Image
-                src={"/main-imgs/circle-icon.png"}
-                width={20}
-                height={20}
-                alt="info"
-                className="mt-1"
-              />
-            </span>
-            <p className="text-4xl font-semibold">€715,34</p>
-          </div>
-          <div className="flex flex-col gap-3 bg-[#F5F7FF] w-full p-8 rounded-2xl bg-[url('/main-imgs/vector-2.png')] bg-no-repeat bg-right relative">
-            <div className="absolute top-0 left-52 -mt-10 -ml-2">
-              <Image
-                src={"/main-imgs/tooltip2.png"}
-                width={200}
-                height={200}
-                alt="tooltip"
-              />
-            </div>
-            <span className="text-xl text-zinc-400 flex items-center gap-2">
-              Sconto sul prossimo rinnovo
-              <Image
-                src={"/main-imgs/circle-icon.png"}
-                width={20}
-                height={20}
-                alt="info"
-                className="mt-1"
-              />
-            </span>
-            <p className="text-4xl font-semibold">€15,34</p>
-          </div>
-          <div className="flex flex-col gap-3 bg-[#F5F7FF] w-full p-8 rounded-2xl bg-[url('/main-imgs/vector-3.png')] bg-no-repeat bg-right">
-            <span className="text-xl text-zinc-400 flex items-center gap-2">
-              Sconto in attesa{" "}
-              <Image
-                src={"/main-imgs/circle-icon.png"}
-                width={20}
-                height={20}
-                alt="info"
-                className="mt-1"
-              />{" "}
-            </span>
-            <p className="text-4xl font-semibold">€9,34</p>
-          </div>
+          <Box
+            title="Crediti Totali"
+            amount="€715,34"
+            infoIcon="/main-imgs/circle-icon.png"
+            tooltip="/main-imgs/tooltip.png"
+            bgUrl="/main-imgs/vector-1.png"
+          />
+          <Box
+            title="Sconto sul prossimo rinnovo"
+            amount="€15,34"
+            infoIcon="/main-imgs/circle-icon.png"
+            tooltip="/main-imgs/tooltip.png"
+            bgUrl="/main-imgs/vector-2.png"
+          />
+          <Box
+            title="Sconto in attesa"
+            amount="€9,34"
+            infoIcon="/main-imgs/circle-icon.png"
+            bgUrl="/main-imgs/vector-3.png"
+          />
         </div>
         <div className="flex items-center justify-between border p-1 rounded-full px-4 border-[#f0136f] mb-4">
           <div className="flex items-center gap-2">
@@ -249,9 +215,13 @@ export default function Home() {
           className="flex items-center  gap-2 cursor-pointer"
         >
           <Image
-            src={"/main-imgs/freccia.png"}
-            width={35}
-            height={35}
+            src={
+              isVisible
+                ? "/main-imgs/freccia.png"
+                : "/main-imgs/freccia-destra.png"
+            }
+            width={20}
+            height={20}
             alt="freccia"
             className="mt-1"
           />
@@ -319,7 +289,7 @@ export default function Home() {
             />
             <span>Date personalizzate</span>
             <Image
-              src={"/main-imgs/freccia.png"}
+              src={"/main-imgs/freccia-1.png"}
               width={20}
               height={20}
               alt="freccia"
