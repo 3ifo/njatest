@@ -1,19 +1,23 @@
 import Image from "next/image";
-interface BoxProps {
+import { ComponentProps } from "react";
+
+interface BoxProps extends ComponentProps<"div"> {
   title: string;
   amount: string;
-  infoIcon: string;
   bgUrl: string;
   tooltip?: string;
 }
-const Box = ({ title, amount, infoIcon, bgUrl, tooltip }: BoxProps) => {
+
+const Box = ({ title, amount, bgUrl, tooltip, ...props }: BoxProps) => {
   const backgroundImageStyle = {
     backgroundImage: `url('${bgUrl}')`,
   };
+
   return (
     <div
       style={backgroundImageStyle}
       className="flex flex-col gap-3 bg-[#F5F7FF] w-full p-8 rounded-2xl bg-no-repeat bg-right relative"
+      {...props}
     >
       {tooltip && (
         <div className="absolute top-0 left-48 -mt-10">
@@ -23,7 +27,7 @@ const Box = ({ title, amount, infoIcon, bgUrl, tooltip }: BoxProps) => {
       <span className="text-xl text-zinc-400 flex items-center gap-2">
         {title}
         <Image
-          src={infoIcon}
+          src={"/main-imgs/circle-icon.png"}
           width={20}
           height={20}
           alt="info"
