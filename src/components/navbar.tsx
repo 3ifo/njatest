@@ -13,7 +13,7 @@ const Navbar = () => {
             alt="logo"
           />
         </div>
-        <div className="flex items-center justify-center gap-2 border border-gray-300 py-1 rounded-full ml-10">
+        <div className="hidden sm:flex items-center justify-center gap-2 border border-gray-300 py-1 rounded-full ml-10">
           <Image
             className="ml-2"
             width={15}
@@ -28,7 +28,7 @@ const Navbar = () => {
           />
         </div>
       </section>
-      <section className="flex gap-4 mr-40">
+      <section className="hidden sm:flex gap-4 mr-40">
         {socialLinks.map((link) => (
           <div key={link.alt}>
             <Image

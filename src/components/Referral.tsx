@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const Referral = () => {
   return (
-    <section className="w-full bg-gradient-to-r from-pink-200 to-blue-200 p-8 px-10 flex items-center justify-between mt-8 rounded-2xl">
+    <section className="w-full bg-gradient-to-r from-pink-200 to-blue-200 p-8 px-4 sm:px-10 flex flex-col sm:flex-row sm:items-center justify-between mt-8 rounded-2xl gap-4">
       <div className="flex flex-col gap-4">
-        <h2 className="text-3xl text-white font-normal">
+        <h2 className="text-lg sm:text-3xl text-white font-normal">
           Invita un amico e ottieni il{" "}
           <strong className="font-semibold relative">
             15% di commissioni!{" "}
@@ -17,21 +17,22 @@ const Referral = () => {
             />
           </strong>
         </h2>
-        <p className="text-white font-light">
+        <p className="text-white font-light text-sm sm:text-xl">
           Guadagna crediti consigliando NJL e paga di meno i prossimi rinnovi
-          del <br /> tuo abbonamento. L'importo verrà scalato in automatico!
+          del tuo abbonamento. <br className="hidden sm:block" /> L'importo
+          verrà scalato in automatico!
         </p>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-6">
         <div className="flex items-center bg-white rounded-3xl p-1">
           <input
             type="text"
             placeholder="https://business.ninjalitics.com/landing?ref+st..."
             name=""
             id=""
-            className="w-96 h-8 p-1 bg-transparent outline-none"
+            className="w-48 sm:w-96 h-8 p-1 bg-transparent outline-none"
           />
-          <button className="mr-1 bg-[#F5C8DD] text-white p-2 rounded-3xl px-7 flex items-center text-sm opacity-90">
+          <button className="mr-1 bg-[#F5C8DD] text-white p-2 rounded-3xl sm:px-7 flex items-center sm:ml-0 ml-6 sm:text-sm text-xs opacity-90">
             Copia Link
           </button>
         </div>

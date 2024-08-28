@@ -1,4 +1,11 @@
-export const sideLinks = [
+interface SideLink {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+export const sideLinks: SideLink[] = [
   { src: "/aside-imgs/menu.png", alt: "menu", width: 20, height: 20 },
   { src: "/aside-imgs/item.png", alt: "item", width: 100, height: 100 },
   { src: "/aside-imgs/foglio.png", alt: "foglio", width: 100, height: 100 },
@@ -10,7 +17,8 @@ export const sideLinks = [
     height: 100,
   },
 ];
-export const middleSideLinks = [
+
+export const middleSideLinks: SideLink[] = [
   { src: "/aside-imgs/watch.png", alt: "watch", width: 100, height: 100 },
   { src: "/aside-imgs/info.png", alt: "info", width: 100, height: 100 },
 ];

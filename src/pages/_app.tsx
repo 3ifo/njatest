@@ -1,5 +1,5 @@
-import Navbar from "@/components/navbar";
-import Sidemenu from "@/components/sidemenu";
+import Navbar from "@/components/Navbar";
+import Sidemenu from "@/components/Sidemenu";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
@@ -15,10 +15,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <header className="col-span-12">
           <Navbar />
         </header>
-        <aside className="col-span-1">
+        <aside className="col-span-1 sm:block hidden">
           <Sidemenu />
         </aside>
-        <main className="col-start-2 col-span-11 p-6 h-full rounded-tl-3xl bg-[#f5f6fa]">
+        <main className="col-start-1 sm:col-start-2 col-span-11 p-6 h-full rounded-tl-3xl bg-[#f5f6fa]">
           <Component {...pageProps} />
         </main>
       </section>

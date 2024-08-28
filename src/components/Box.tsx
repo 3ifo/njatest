@@ -1,3 +1,4 @@
+import Tooltip from "./Tooltip";
 import Image from "next/image";
 import { ComponentProps } from "react";
 
@@ -5,10 +6,9 @@ interface BoxProps extends ComponentProps<"div"> {
   title: string;
   amount: string;
   bgUrl: string;
-  tooltip?: string;
 }
 
-const Box = ({ title, amount, bgUrl, tooltip, ...props }: BoxProps) => {
+const Box = ({ title, amount, bgUrl, ...props }: BoxProps) => {
   const backgroundImageStyle = {
     backgroundImage: `url('${bgUrl}')`,
   };
@@ -16,15 +16,10 @@ const Box = ({ title, amount, bgUrl, tooltip, ...props }: BoxProps) => {
   return (
     <div
       style={backgroundImageStyle}
-      className="flex flex-col gap-3 bg-[#F5F7FF] w-full p-8 rounded-2xl bg-no-repeat bg-right relative"
+      className="flex flex-col gap-3 bg-[#F5F7FF] w-full p-6 sm:p-8 rounded-2xl bg-no-repeat bg-right relative"
       {...props}
     >
-      {tooltip && (
-        <div className="absolute top-0 left-48 -mt-10">
-          <Image src={tooltip} width={200} height={200} alt="tooltip" />
-        </div>
-      )}
-      <span className="text-xl text-zinc-400 flex items-center gap-2">
+      <span className="text-base sm:text-xl text-zinc-400 flex items-center gap-2">
         {title}
         <Image
           src={"/main-imgs/circle-icon.png"}
@@ -34,7 +29,7 @@ const Box = ({ title, amount, bgUrl, tooltip, ...props }: BoxProps) => {
           className="mt-1"
         />
       </span>
-      <p className="text-4xl font-semibold">{amount}</p>
+      <p className="sm:text-4xl text-3xl font-semibold">{amount}</p>
     </div>
   );
 };

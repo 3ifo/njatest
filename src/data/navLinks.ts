@@ -1,4 +1,11 @@
-const socialLinks = [
+interface NavbarImageLink {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+const socialLinks: NavbarImageLink[] = [
   {
     src: "/navbar-imgs/instagram.png",
     alt: "instagram",
@@ -10,7 +17,7 @@ const socialLinks = [
   { src: "/navbar-imgs/tiktok.png", alt: "tiktok", width: 25, height: 25 },
 ];
 
-const settingsLinks = [
+const settingsLinks: NavbarImageLink[] = [
   {
     src: "/navbar-imgs/impostazioni.png",
     alt: "impostazioni",
